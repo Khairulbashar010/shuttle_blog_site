@@ -12,7 +12,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('blog_banner');
+            $table->string('blog_banner')->nullable();
             $table->text('blog_body');
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
