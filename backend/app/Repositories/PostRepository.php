@@ -17,7 +17,7 @@ class PostRepository implements PostRepositoryInterface
 {
     public function getAllPosts()
     {
-        return Post::with('comments', 'tags', 'category')->get();
+        return Post::with('comments', 'tags', 'category')->orderBy('id', 'desc')->get();
     }
 
     public function createPost(array $data)
@@ -75,7 +75,7 @@ class PostRepository implements PostRepositoryInterface
 
     public function findPostBySlug($slug)
     {
-        return Post::with('comments', 'tags')->where('slug', $slug)->first();
+        return Post::with('comments', 'tags', 'category')->where('slug', $slug)->first();
     }
 
     public function findPostById($id)

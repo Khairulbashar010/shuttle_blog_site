@@ -20,7 +20,7 @@ class CommentRepository implements CommentRepositoryInterface
 
     public function getCommentsByPostId($post_id)
     {
-        return Comment::where('post_id', $post_id)->with('replies')->get();
+        return Comment::where('post_id', $post_id)->where('parent_id', null)->with('replies')->get();
     }
 
     public function createComment($post_id, array $data)

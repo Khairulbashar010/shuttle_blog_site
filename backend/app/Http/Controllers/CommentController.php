@@ -33,7 +33,7 @@ class CommentController extends Controller
     public function index($post_id)
     {
         try {
-            $comments = $this->commentRepository->getCommentsByPost($post_id);
+            $comments = $this->commentRepository->getCommentsByPostId($post_id);
             return response()->json($comments);
         } catch (\Exception $e) {
             return response()->json(['error'=>$e->getMessage()], $e->getCode());
