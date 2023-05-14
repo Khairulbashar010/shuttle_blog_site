@@ -15,6 +15,7 @@
 cp .env.example .env
 composer install
 npm install
+php artisan migrate
 ```
 
 ### Compiles and hot-reloads for development
